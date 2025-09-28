@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宁德时代投资分析 | 专业金融数据分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .font-serif { font-family: 'Noto Serif SC', serif; }
+        .font-sans { font-family: 'Noto Sans SC', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('hero-bg.png') center/cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #f59e0b, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-slate-800 font-serif">宁德时代投资分析</h1>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <a href="#overview" class="text-slate-600 hover:text-blue-600 transition-colors">概览</a>
+                    <a href="analysis.html" class="text-slate-600 hover:text-blue-600 transition-colors">深度分析</a>
+                    <a href="investment.html" class="text-slate-600 hover:text-blue-600 transition-colors">投资策略</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center pt-16">
+        <div class="hero-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 font-serif">
+                        <span class="gradient-text">宁德时代</span><br>
+                        全球动力电池领导者
+                    </h1>
+                    <p class="text-xl mb-8 text-blue-100 leading-relaxed">
+                        连续8年全球动力电池市场份额第一，2024年营收3620亿元，净利润507亿元。
+                        深度分析投资价值，把握新能源时代的投资机遇。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="scrollToSection('overview')" class="bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                            查看分析报告
+                        </button>
+                        <button onclick="window.location.href='investment.html'" class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-semibold transition-colors">
+                            投资建议
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="battery-tech.png" alt="宁德时代电池技术" class="w-full h-auto rounded-lg shadow-2xl">
+                    <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold pulse-animation">
+                        连续8年全球第一
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics Overview -->
+    <section id="overview" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4 font-serif">核心投资指标</h2>
+                <p class="text-xl text-slate-600">基于2024年年报数据的关键财务指标</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl card-hover">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">3620亿</div>
+                    <div class="text-slate-600 mb-1">营业收入</div>
+                    <div class="text-sm text-red-500">▼ 9.7%</div>
+                </div>
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl card-hover">
+                    <div class="text-3xl font-bold text-green-600 mb-2">507亿</div>
+                    <div class="text-slate-600 mb-1">归母净利润</div>
+                    <div class="text-sm text-green-500">▲ 15.01%</div>
+                </div>
+                <div class="bg-gradient-to-br from-amber-50 to-amber-100 p-8 rounded-xl card-hover">
+                    <div class="text-3xl font-bold text-amber-600 mb-2">37.9%</div>
+                    <div class="text-slate-600 mb-1">全球市场份额</div>
+                    <div class="text-sm text-green-500">▲ 1.3%</div>
+                </div>
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl card-hover">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">24.4%</div>
+                    <div class="text-slate-600 mb-1">毛利率</div>
+                    <div class="text-sm text-green-500">▲ 5.51%</div>
+                </div>
+            </div>
+
+            <!-- Market Share Chart -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-16">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">全球动力电池市场份额对比</h3>
+                <div id="marketShareChart" class="h-96"></div>
+            </div>
+
+            <!-- Investment Recommendation -->
+            <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-8 border-l-4 border-green-500">
+                <div class="flex items-center mb-4">
+                    <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                    <h3 class="text-2xl font-bold text-slate-800 font-serif">投资建议：买入</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <div class="text-lg font-semibold text-slate-700">目标价位</div>
+                        <div class="text-3xl font-bold text-green-600">¥420-450</div>
+                    </div>
+                    <div>
+                        <div class="text-lg font-semibold text-slate-700">预期涨幅</div>
+                        <div class="text-3xl font-bold text-green-600">15-25%</div>
+                    </div>
+                    <div>
+                        <div class="text-lg font-semibold text-slate-700">投资周期</div>
+                        <div class="text-3xl font-bold text-blue-600">3-6个月</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Analysis -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4 font-serif">竞争优势分析</h2>
+                <p class="text-xl text-slate-600">与全球主要竞争对手的对比</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">技术领先优势</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                            <div>
+                                <div class="font-semibold text-slate-700">麒麟电池技术</div>
+                                <div class="text-slate-600">能量密度提升，充电速度行业领先</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                            <div>
+                                <div class="font-semibold text-slate-700">钠离子电池</div>
+                                <div class="text-slate-600">成本优势明显，适合储能应用</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                            <div>
+                                <div class="font-semibold text-slate-700">CTP技术</div>
+                                <div class="text-slate-600">结构创新，提升空间利用率</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">市场地位</h3>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600">全球动力电池</span>
+                            <span class="font-bold text-blue-600">第1名</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600">全球储能电池</span>
+                            <span class="font-bold text-blue-600">第1名</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600">中国市场份额</span>
+                            <span class="font-bold text-green-600">43.2%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600">客户满意度</span>
+                            <span class="font-bold text-green-600">95%+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-300">© 2025 宁德时代投资分析. 基于公开数据的专业分析，仅供参考，投资有风险。</p>
+        </div>
+    </footer>
+
+    <script>
+        // Market Share Chart
+        const marketShareChart = echarts.init(document.getElementById('marketShareChart'));
+        const marketShareOption = {
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c}% ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['宁德时代', '比亚迪', 'LG新能源', '中创新航', 'SK On', '松下', '其他']
+            },
+            series: [
+                {
+                    name: '市场份额',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    center: ['60%', '50%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: '18',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        {value: 37.9, name: '宁德时代', itemStyle: {color: '#1e3a8a'}},
+                        {value: 17.8, name: '比亚迪', itemStyle: {color: '#10b981'}},
+                        {value: 9.4, name: 'LG新能源', itemStyle: {color: '#f59e0b'}},
+                        {value: 4.3, name: '中创新航', itemStyle: {color: '#8b5cf6'}},
+                        {value: 3.9, name: 'SK On', itemStyle: {color: '#ef4444'}},
+                        {value: 3.7, name: '松下', itemStyle: {color: '#06b6d4'}},
+                        {value: 23.0, name: '其他', itemStyle: {color: '#6b7280'}}
+                    ]
+                }
+            ]
+        };
+        marketShareChart.setOption(marketShareOption);
+
+        // Animation on scroll
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({
+                        targets: entry.target,
+                        translateY: [50, 0],
+                        opacity: [0, 1],
+                        duration: 800,
+                        easing: 'easeOutQuad'
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-hover').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Responsive chart
+        window.addEventListener('resize', function() {
+            marketShareChart.resize();
+        });
+    </script>
+</body>
+</html>

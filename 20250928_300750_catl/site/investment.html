@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投资策略 | 宁德时代投资分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .font-serif { font-family: 'Noto Serif SC', serif; }
+        .font-sans { font-family: 'Noto Sans SC', sans-serif; }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .calculator-result {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-slate-800 font-serif">宁德时代投资分析</h1>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <a href="index.html" class="text-slate-600 hover:text-blue-600 transition-colors">概览</a>
+                    <a href="analysis.html" class="text-slate-600 hover:text-blue-600 transition-colors">深度分析</a>
+                    <a href="#investment" class="text-blue-600 font-semibold">投资策略</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-gradient-to-r from-green-600 to-emerald-700 text-white pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-5xl font-bold mb-4 font-serif">投资策略建议</h1>
+            <p class="text-xl text-green-100">基于深度分析的专业投资建议和风险评估</p>
+        </div>
+    </section>
+
+    <!-- Investment Recommendation -->
+    <section id="investment" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4 font-serif">投资建议</h2>
+                <p class="text-xl text-slate-600">基于当前市场环境和公司基本面的综合判断</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Overall Rating -->
+                <div class="bg-gradient-to-br from-green-500 to-emerald-600 text-white rounded-xl p-8 card-hover">
+                    <div class="text-center">
+                        <div class="text-6xl font-bold mb-4">买入</div>
+                        <div class="text-xl mb-2">综合评级</div>
+                        <div class="text-green-100">强烈推荐</div>
+                    </div>
+                </div>
+
+                <!-- Target Price -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">目标价位</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600">3个月目标</span>
+                            <span class="text-2xl font-bold text-green-600">¥420</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600">6个月目标</span>
+                            <span class="text-2xl font-bold text-green-600">¥450</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600">12个月目标</span>
+                            <span class="text-2xl font-bold text-green-600">¥500</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk Level -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">风险等级</h3>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-amber-500 mb-2">中等</div>
+                        <div class="text-slate-600">风险可控</div>
+                        <div class="mt-4">
+                            <div class="flex justify-center space-x-1">
+                                <div class="w-4 h-4 bg-red-500 rounded-full"></div>
+                                <div class="w-4 h-4 bg-amber-500 rounded-full"></div>
+                                <div class="w-4 h-4 bg-slate-300 rounded-full"></div>
+                                <div class="w-4 h-4 bg-slate-300 rounded-full"></div>
+                                <div class="w-4 h-4 bg-slate-300 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Investment Points -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-16">
+                <h3 class="text-2xl font-bold text-slate-800 mb-8 font-serif">投资要点</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-green-600 mb-4">投资亮点</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                                <div>
+                                    <div class="font-semibold text-slate-700">行业龙头地位稳固</div>
+                                    <div class="text-sm text-slate-600">连续8年全球第一，市场份额37.9%</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                                <div>
+                                    <div class="font-semibold text-slate-700">技术创新领先</div>
+                                    <div class="text-sm text-slate-600">麒麟电池、钠离子电池等技术优势</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                                <div>
+                                    <div class="font-semibold text-slate-700">盈利能力持续提升</div>
+                                    <div class="text-sm text-slate-600">毛利率24.4%，创历史新高</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                                <div>
+                                    <div class="font-semibold text-slate-700">政策环境利好</div>
+                                    <div class="text-sm text-slate-600">国内外新能源政策持续支持</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-red-600 mb-4">风险提示</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></div>
+                                <div>
+                                    <div class="font-semibold text-slate-700">行业竞争加剧</div>
+                                    <div class="text-sm text-slate-600">比亚迪等竞争对手快速发展</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></div>
+                                <div>
+                                    <div class="font-semibold text-slate-700">原材料价格波动</div>
+                                    <div class="text-sm text-slate-600">锂、钴等价格波动影响成本</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></div>
+                                <div>
+                                    <div class="font-semibold text-slate-700">技术迭代风险</div>
+                                    <div class="text-sm text-slate-600">新技术可能颠覆现有格局</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></div>
+                                <div>
+                                    <div class="font-semibold text-slate-700">国际贸易风险</div>
+                                    <div class="text-sm text-slate-600">地缘政治影响海外业务</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trading Strategy -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4 font-serif">交易策略</h2>
+                <p class="text-xl text-slate-600">具体的买入时机、止盈止损点位</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <!-- Price Levels -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">关键价位</h3>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center p-4 bg-red-50 rounded-lg">
+                            <div>
+                                <div class="font-semibold text-red-600">止损位</div>
+                                <div class="text-sm text-slate-600">跌破此价位考虑卖出</div>
+                            </div>
+                            <div class="text-2xl font-bold text-red-600">¥320</div>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                            <div>
+                                <div class="font-semibold text-blue-600">当前价位</div>
+                                <div class="text-sm text-slate-600">2025年9月参考价</div>
+                            </div>
+                            <div class="text-2xl font-bold text-blue-600">¥380</div>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
+                            <div>
+                                <div class="font-semibold text-green-600">止盈位</div>
+                                <div class="text-sm text-slate-600">达到目标可考虑减仓</div>
+                            </div>
+                            <div class="text-2xl font-bold text-green-600">¥420</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investment Calculator -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">收益计算器</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">投资金额(万元)</label>
+                            <input type="number" id="investmentAmount" value="10" min="1" max="1000" 
+                                   class="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">预期涨幅(%)</label>
+                            <input type="number" id="expectedReturn" value="15" min="1" max="100" 
+                                   class="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <button onclick="calculateReturn()" 
+                                class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
+                            计算预期收益
+                        </button>
+                        <div id="calculatorResult" class="calculator-result hidden">
+                            <div class="text-lg font-semibold">预期收益分析</div>
+                            <div class="mt-2">
+                                <div>投资金额: <span id="investmentDisplay"></span>万元</div>
+                                <div>预期收益: <span id="profitDisplay"></span>万元</div>
+                                <div>总回报率: <span id="returnDisplay"></span>%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trading Timeline -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-8 font-serif">3个月交易计划</h3>
+                <div class="relative">
+                    <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-200"></div>
+                    <div class="space-y-8">
+                        <div class="relative flex items-center">
+                            <div class="absolute left-6 w-4 h-4 bg-blue-500 rounded-full"></div>
+                            <div class="ml-16">
+                                <div class="font-semibold text-slate-700">第1个月 (10月)</div>
+                                <div class="text-sm text-slate-600">建仓期，分批买入，控制仓位50%</div>
+                                <div class="text-xs text-blue-600 mt-1">建议买入价位: ¥360-380</div>
+                            </div>
+                        </div>
+                        <div class="relative flex items-center">
+                            <div class="absolute left-6 w-4 h-4 bg-amber-500 rounded-full"></div>
+                            <div class="ml-16">
+                                <div class="font-semibold text-slate-700">第2个月 (11月)</div>
+                                <div class="text-sm text-slate-600">观察期，根据财报和消息面调整仓位</div>
+                                <div class="text-xs text-amber-600 mt-1">关注Q3财报和政策变化</div>
+                            </div>
+                        </div>
+                        <div class="relative flex items-center">
+                            <div class="absolute left-6 w-4 h-4 bg-green-500 rounded-full"></div>
+                            <div class="ml-16">
+                                <div class="font-semibold text-slate-700">第3个月 (12月)</div>
+                                <div class="text-sm text-slate-600">收获期，达到目标价位逐步减仓</div>
+                                <div class="text-xs text-green-600 mt-1">止盈位: ¥420，止损位: ¥320</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Long-term Outlook -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4 font-serif">长期展望</h2>
+                <p class="text-xl text-slate-600">未来1-3年发展前景和投资价值</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Growth Drivers -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">增长驱动力</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="text-blue-600 font-bold text-sm">1</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-slate-700">新能源汽车渗透率提升</div>
+                                <div class="text-sm text-slate-600">全球新能源汽车渗透率预计从2024年的15%提升至2027年的30%</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="text-green-600 font-bold text-sm">2</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-slate-700">储能市场爆发</div>
+                                <div class="text-sm text-slate-600">全球储能市场预计年复合增长率超过30%</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="text-amber-600 font-bold text-sm">3</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-slate-700">技术创新领先</div>
+                                <div class="text-sm text-slate-600">麒麟电池、钠离子电池等技术持续领先</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="text-purple-600 font-bold text-sm">4</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-slate-700">全球化布局加速</div>
+                                <div class="text-sm text-slate-600">欧洲、北美工厂陆续投产，海外收入占比提升</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Projection -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">财务预测</h3>
+                    <div id="projectionChart" class="h-80"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-300">© 2025 宁德时代投资分析. 基于公开数据的专业分析，仅供参考，投资有风险。</p>
+        </div>
+    </footer>
+
+    <script>
+        // Investment Calculator
+        function calculateReturn() {
+            const amount = parseFloat(document.getElementById('investmentAmount').value);
+            const returnRate = parseFloat(document.getElementById('expectedReturn').value);
+            
+            if (amount && returnRate) {
+                const profit = amount * (returnRate / 100);
+                const total = amount + profit;
+                
+                document.getElementById('investmentDisplay').textContent = amount.toFixed(1);
+                document.getElementById('profitDisplay').textContent = profit.toFixed(1);
+                document.getElementById('returnDisplay').textContent = returnRate.toFixed(1);
+                
+                document.getElementById('calculatorResult').classList.remove('hidden');
+                
+                // Animate the result
+                anime({
+                    targets: '#calculatorResult',
+                    scale: [0.8, 1],
+                    opacity: [0, 1],
+                    duration: 500,
+                    easing: 'easeOutQuad'
+                });
+            }
+        }
+
+        // Financial Projection Chart
+        const projectionChart = echarts.init(document.getElementById('projectionChart'));
+        const projectionOption = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['营收预测', '净利润预测']
+            },
+            xAxis: {
+                type: 'category',
+                data: ['2024年', '2025年', '2026年', '2027年']
+            },
+            yAxis: [
+                {
+                    type: 'value',
+                    name: '营业收入(亿元)',
+                    position: 'left'
+                },
+                {
+                    type: 'value',
+                    name: '净利润(亿元)',
+                    position: 'right'
+                }
+            ],
+            series: [
+                {
+                    name: '营收预测',
+                    type: 'bar',
+                    data: [3620, 4350, 5220, 6260],
+                    itemStyle: {
+                        color: '#3b82f6'
+                    }
+                },
+                {
+                    name: '净利润预测',
+                    type: 'line',
+                    yAxisIndex: 1,
+                    data: [507, 650, 820, 1050],
+                    itemStyle: {
+                        color: '#10b981'
+                    },
+                    lineStyle: {
+                        width: 3
+                    }
+                }
+            ]
+        };
+        projectionChart.setOption(projectionOption);
+
+        // Responsive chart
+        window.addEventListener('resize', function() {
+            projectionChart.resize();
+        });
+
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({
+                        targets: entry.target,
+                        translateY: [50, 0],
+                        opacity: [0, 1],
+                        duration: 800,
+                        easing: 'easeOutQuad'
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-hover').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

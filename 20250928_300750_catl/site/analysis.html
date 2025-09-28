@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深度分析 | 宁德时代投资分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .font-serif { font-family: 'Noto Serif SC', serif; }
+        .font-sans { font-family: 'Noto Sans SC', sans-serif; }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-slate-800 font-serif">宁德时代投资分析</h1>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <a href="index.html" class="text-slate-600 hover:text-blue-600 transition-colors">概览</a>
+                    <a href="#analysis" class="text-blue-600 font-semibold">深度分析</a>
+                    <a href="investment.html" class="text-slate-600 hover:text-blue-600 transition-colors">投资策略</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-5xl font-bold mb-4 font-serif">深度财务分析</h1>
+            <p class="text-xl text-blue-100">全面解析宁德时代的财务表现、竞争地位和增长潜力</p>
+        </div>
+    </section>
+
+    <!-- Financial Performance -->
+    <section id="analysis" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4 font-serif">财务表现分析</h2>
+                <p class="text-xl text-slate-600">基于2022-2024年财务数据的趋势分析</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <!-- Revenue and Profit Chart -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">营收与利润趋势</h3>
+                    <div id="revenueChart" class="h-80"></div>
+                </div>
+
+                <!-- Profit Margin Chart -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">利润率变化</h3>
+                    <div id="marginChart" class="h-80"></div>
+                </div>
+            </div>
+
+            <!-- Key Financial Metrics -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-16">
+                <h3 class="text-2xl font-bold text-slate-800 mb-8 font-serif">关键财务指标对比</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b-2 border-slate-200">
+                                <th class="text-left py-4 px-2 font-semibold text-slate-700">指标</th>
+                                <th class="text-center py-4 px-2 font-semibold text-slate-700">2022年</th>
+                                <th class="text-center py-4 px-2 font-semibold text-slate-700">2023年</th>
+                                <th class="text-center py-4 px-2 font-semibold text-slate-700">2024年</th>
+                                <th class="text-center py-4 px-2 font-semibold text-slate-700">变化趋势</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-4 px-2 text-slate-600">营业收入(亿元)</td>
+                                <td class="py-4 px-2 text-center text-slate-800">3,285</td>
+                                <td class="py-4 px-2 text-center text-slate-800">4,009</td>
+                                <td class="py-4 px-2 text-center text-slate-800">3,620</td>
+                                <td class="py-4 px-2 text-center text-red-500">▼ -9.7%</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-4 px-2 text-slate-600">净利润(亿元)</td>
+                                <td class="py-4 px-2 text-center text-slate-800">307</td>
+                                <td class="py-4 px-2 text-center text-slate-800">441</td>
+                                <td class="py-4 px-2 text-center text-slate-800">507</td>
+                                <td class="py-4 px-2 text-center text-green-500">▲ +15.0%</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-4 px-2 text-slate-600">毛利率(%)</td>
+                                <td class="py-4 px-2 text-center text-slate-800">18.9</td>
+                                <td class="py-4 px-2 text-center text-slate-800">18.9</td>
+                                <td class="py-4 px-2 text-center text-slate-800">24.4</td>
+                                <td class="py-4 px-2 text-center text-green-500">▲ +5.5%</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-4 px-2 text-slate-600">净资产收益率(%)</td>
+                                <td class="py-4 px-2 text-center text-slate-800">18.9</td>
+                                <td class="py-4 px-2 text-center text-slate-800">20.6</td>
+                                <td class="py-4 px-2 text-center text-slate-800">22.1</td>
+                                <td class="py-4 px-2 text-center text-green-500">▲ +1.5%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-2 text-slate-600">资产负债率(%)</td>
+                                <td class="py-4 px-2 text-center text-slate-800">71.2</td>
+                                <td class="py-4 px-2 text-center text-slate-800">69.3</td>
+                                <td class="py-4 px-2 text-center text-slate-800">65.2</td>
+                                <td class="py-4 px-2 text-center text-green-500">▲ -4.1%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Analysis -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4 font-serif">竞争对手对比</h2>
+                <p class="text-xl text-slate-600">与全球主要动力电池厂商的全方位对比</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <!-- Market Share Comparison -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">市场份额对比 (2024年)</h3>
+                    <div id="competitorChart" class="h-80"></div>
+                </div>
+
+                <!-- Technology Comparison -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">技术路线对比</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
+                            <div>
+                                <div class="font-semibold text-slate-700">宁德时代</div>
+                                <div class="text-sm text-slate-600">磷酸铁锂 + 三元锂</div>
+                            </div>
+                            <div class="text-blue-600 font-bold">领先</div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <div>
+                                <div class="font-semibold text-slate-700">比亚迪</div>
+                                <div class="text-sm text-slate-600">磷酸铁锂(刀片电池)</div>
+                            </div>
+                            <div class="text-green-600 font-bold">优秀</div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <div>
+                                <div class="font-semibold text-slate-700">LG新能源</div>
+                                <div class="text-sm text-slate-600">三元锂为主</div>
+                            </div>
+                            <div class="text-amber-600 font-bold">良好</div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <div>
+                                <div class="font-semibold text-slate-700">三星SDI</div>
+                                <div class="text-sm text-slate-600">三元锂</div>
+                            </div>
+                            <div class="text-amber-600 font-bold">良好</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Comparison -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-8 font-serif">财务指标对比 (2024年)</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b-2 border-slate-200">
+                                <th class="text-left py-4 px-2 font-semibold text-slate-700">公司</th>
+                                <th class="text-center py-4 px-2 font-semibold text-slate-700">营收(亿元)</th>
+                                <th class="text-center py-4 px-2 font-semibold text-slate-700">净利润(亿元)</th>
+                                <th class="text-center py-4 px-2 font-semibold text-slate-700">毛利率(%)</th>
+                                <th class="text-center py-4 px-2 font-semibold text-slate-700">市场份额(%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-100 bg-blue-50">
+                                <td class="py-4 px-2 font-semibold text-blue-600">宁德时代</td>
+                                <td class="py-4 px-2 text-center text-slate-800">3,620</td>
+                                <td class="py-4 px-2 text-center text-slate-800">507</td>
+                                <td class="py-4 px-2 text-center text-green-600">24.4</td>
+                                <td class="py-4 px-2 text-center text-blue-600">37.9</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-4 px-2 font-semibold text-slate-700">比亚迪</td>
+                                <td class="py-4 px-2 text-center text-slate-800">2,100</td>
+                                <td class="py-4 px-2 text-center text-slate-800">300</td>
+                                <td class="py-4 px-2 text-center text-slate-800">20.2</td>
+                                <td class="py-4 px-2 text-center text-slate-800">17.8</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-4 px-2 font-semibold text-slate-700">LG新能源</td>
+                                <td class="py-4 px-2 text-center text-slate-800">1,295</td>
+                                <td class="py-4 px-2 text-center text-slate-800">29</td>
+                                <td class="py-4 px-2 text-center text-slate-800">12.5</td>
+                                <td class="py-4 px-2 text-center text-slate-800">9.4</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-4 px-2 font-semibold text-slate-700">三星SDI</td>
+                                <td class="py-4 px-2 text-center text-slate-800">830</td>
+                                <td class="py-4 px-2 text-center text-slate-800">18</td>
+                                <td class="py-4 px-2 text-center text-slate-800">15.8</td>
+                                <td class="py-4 px-2 text-center text-slate-800">3.2</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-2 font-semibold text-slate-700">松下</td>
+                                <td class="py-4 px-2 text-center text-slate-800">415</td>
+                                <td class="py-4 px-2 text-center text-slate-800">25</td>
+                                <td class="py-4 px-2 text-center text-slate-800">16.2</td>
+                                <td class="py-4 px-2 text-center text-slate-800">3.7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policy Impact -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4 font-serif">政策影响分析</h2>
+                <p class="text-xl text-slate-600">国内外新能源政策对公司的影响评估</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- China Policy -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">国内政策利好</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 bg-green-500 rounded-full mt-2 mr-4"></div>
+                            <div>
+                                <div class="font-semibold text-slate-700">汽车以旧换新政策</div>
+                                <div class="text-sm text-slate-600">2025年补贴2万元，刺激新能源汽车需求</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 bg-green-500 rounded-full mt-2 mr-4"></div>
+                            <div>
+                                <div class="font-semibold text-slate-700">新能源汽车购置税减免</div>
+                                <div class="text-sm text-slate-600">延续至2025年底，降低消费者购车成本</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 bg-green-500 rounded-full mt-2 mr-4"></div>
+                            <div>
+                                <div class="font-semibold text-slate-700">双碳目标推动</div>
+                                <div class="text-sm text-slate-600">2030碳达峰，2060碳中和，长期利好</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- International Policy -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 font-serif">国际政策影响</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 bg-amber-500 rounded-full mt-2 mr-4"></div>
+                            <div>
+                                <div class="font-semibold text-slate-700">欧盟碳边境调节机制</div>
+                                <div class="text-sm text-slate-600">2026年实施，对出口有一定影响</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 bg-green-500 rounded-full mt-2 mr-4"></div>
+                            <div>
+                                <div class="font-semibold text-slate-700">美国IRA法案</div>
+                                <div class="text-sm text-slate-600">海外建厂可获得补贴，利好全球化</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 bg-blue-500 rounded-full mt-2 mr-4"></div>
+                            <div>
+                                <div class="font-semibold text-slate-700">全球电动化趋势</div>
+                                <div class="text-sm text-slate-600">各国加速电动化转型，市场空间广阔</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-300">© 2025 宁德时代投资分析. 基于公开数据的专业分析，仅供参考，投资有风险。</p>
+        </div>
+    </footer>
+
+    <script>
+        // Revenue Chart
+        const revenueChart = echarts.init(document.getElementById('revenueChart'));
+        const revenueOption = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['营业收入', '净利润']
+            },
+            xAxis: {
+                type: 'category',
+                data: ['2022年', '2023年', '2024年']
+            },
+            yAxis: {
+                type: 'value',
+                name: '金额(亿元)'
+            },
+            series: [
+                {
+                    name: '营业收入',
+                    type: 'bar',
+                    data: [3285, 4009, 3620],
+                    itemStyle: {
+                        color: '#3b82f6'
+                    }
+                },
+                {
+                    name: '净利润',
+                    type: 'bar',
+                    data: [307, 441, 507],
+                    itemStyle: {
+                        color: '#10b981'
+                    }
+                }
+            ]
+        };
+        revenueChart.setOption(revenueOption);
+
+        // Margin Chart
+        const marginChart = echarts.init(document.getElementById('marginChart'));
+        const marginOption = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['毛利率', '净利率']
+            },
+            xAxis: {
+                type: 'category',
+                data: ['2022年', '2023年', '2024年']
+            },
+            yAxis: {
+                type: 'value',
+                name: '百分比(%)'
+            },
+            series: [
+                {
+                    name: '毛利率',
+                    type: 'line',
+                    data: [18.9, 18.9, 24.4],
+                    itemStyle: {
+                        color: '#f59e0b'
+                    },
+                    lineStyle: {
+                        width: 3
+                    }
+                },
+                {
+                    name: '净利率',
+                    type: 'line',
+                    data: [9.3, 11.0, 14.0],
+                    itemStyle: {
+                        color: '#8b5cf6'
+                    },
+                    lineStyle: {
+                        width: 3
+                    }
+                }
+            ]
+        };
+        marginChart.setOption(marginOption);
+
+        // Competitor Chart
+        const competitorChart = echarts.init(document.getElementById('competitorChart'));
+        const competitorOption = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            xAxis: {
+                type: 'value',
+                name: '市场份额(%)'
+            },
+            yAxis: {
+                type: 'category',
+                data: ['松下', '三星SDI', 'SK On', '中创新航', 'LG新能源', '比亚迪', '宁德时代']
+            },
+            series: [
+                {
+                    name: '市场份额',
+                    type: 'bar',
+                    data: [3.7, 3.2, 3.9, 4.3, 9.4, 17.8, 37.9],
+                    itemStyle: {
+                        color: function(params) {
+                            const colors = ['#6b7280', '#ef4444', '#f59e0b', '#8b5cf6', '#f59e0b', '#10b981', '#1e3a8a'];
+                            return colors[params.dataIndex];
+                        }
+                    }
+                }
+            ]
+        };
+        competitorChart.setOption(competitorOption);
+
+        // Responsive charts
+        window.addEventListener('resize', function() {
+            revenueChart.resize();
+            marginChart.resize();
+            competitorChart.resize();
+        });
+
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({
+                        targets: entry.target,
+                        translateY: [50, 0],
+                        opacity: [0, 1],
+                        duration: 800,
+                        easing: 'easeOutQuad'
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-hover').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
